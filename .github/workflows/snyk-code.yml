@@ -47,17 +47,18 @@ jobs:
         #  with:
         #    node-version: 16
 
-        env:
+        #env:
           # This is where you will need to introduce the Snyk API token created with your Snyk account
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          SNYK_ORG: ${{ secrets.SNYK_ORG }}
+          #SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          #SNYK_ORG: ${{ secrets.SNYK_ORG }}
           
         # Runs Snyk Code (SAST) analysis and uploads result into GitHub.
         # Use || true to not fail the pipeline
       - name: Snyk Code test
         run:  |
           #set the endpoint to work with the relevant tenant
-          snyk config set endpoint=https://app.au.snyk.io/api
+          #snyk config set endpoint=https://app.au.snyk.io/api
+          snyk config set endpoint=${{ vars.SNYK_ORG }}
           # authenticate snyk
           snyk auth ${{ secrets.SNYK_TOKEN }}
           #run the snyc code +test:
