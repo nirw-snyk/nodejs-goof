@@ -58,7 +58,7 @@ jobs:
         run:  |
           #set the endpoint to work with the relevant tenant
           #snyk config set endpoint=https://app.au.snyk.io/api
-          snyk config set endpoint=${{ vars.SNYK_ORG }}
+          snyk config set endpoint=${{ vars.SNYK_ENDPOINT }}
           # authenticate snyk
           snyk auth ${{ secrets.SNYK_TOKEN }}
           #run the snyc code +test:
