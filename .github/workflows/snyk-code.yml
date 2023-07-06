@@ -51,14 +51,14 @@ jobs:
           # This is where you will need to introduce the Snyk API token created with your Snyk account
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           SNYK_ORG: ${{ secrets.SNYK_ORG }}
-          SNYK_ENDPOINT: ${{ env.SNYK_ENDPOINT }}
+          SNYK_ENDPOINT: ${{ github.repository.SNYK_ENDPOINT }}
 
         # Runs Snyk Code (SAST) analysis and uploads result into GitHub.
         # Use || true to not fail the pipeline
       - name: Snyk Code test
         run:  |
           #set the endpoint to work with the relevant tenant
-          snyk config set endpoint=${{env.SNYK_ENDPOINT}}
+          snyk config set endpoint=${{ github.repository.SNYK_ENDPOINT }}
           # authenticate snyk
           snyk auth ${{ secrets.SNYK_TOKEN }}
           #run the snyc code +test:
