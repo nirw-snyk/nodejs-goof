@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Snyk nodejs goof demo
+  description: Demo app - business critical
+  labels:
+    example.com/custom: custom_label_value
+  title: Snyk nodejs goof demo
+  tags:
+    - javascript
+    - nodejs
+    - web
+    - goof
+  links:
+    - url: https://demo-fake.io/
+      title: Snyk nodejs goof demo
+      icon: Blender
+      type: website
+spec:
+  type: website
+  lifecycle: production
+  owner: rockstar-team
+  system: public-websites
